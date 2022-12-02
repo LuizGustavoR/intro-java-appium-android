@@ -1,7 +1,7 @@
-# java-appium-android-ios
+# intro-java-appium-android
 
 I've created this repository with the objective to learn about mobile test automation using:
-- Java, Appium (Android and iOS), Cucumber, TestNG and Maven.
+- Java, Appium Android, Cucumber, TestNG and Maven.
 
 ---
 
@@ -14,13 +14,14 @@ Previous software to be installed on your computer.
 - Maven.
 - IDE (Preferred Intellij).
 - Android SDK Tools.
-- Appium Server or Appium Desktop.
+- Appium or Appium Desktop.
 
 ## Project Setup
 
 1. Clone this repository.
 2. Open the terminal and go to the project root folder.
-3. Run `mvn test`.
+3. Run on a VIRTUAL device`mvn test`.\
+   3.1 Run on a REAL device`mvn test -Dtest.real.device=true`
 
 PS: Check if your maven is using the jdk-1.8 (mvn --version).\
 PS2: Check if you created an "android virtual device" (AVD)\

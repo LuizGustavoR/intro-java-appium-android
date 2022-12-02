@@ -1,7 +1,6 @@
 package setup;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.AutomationName;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -25,16 +24,15 @@ public class SetupMyAppiumDriver {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
-        capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
+        capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
 
-        // Setup if appiumdriver should run virtual of real device
+        // Default value is a virtual device
         boolean isTestRealDevice = Boolean.getBoolean("test.real.device");
-        if(isTestRealDevice){
-            capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel_4a");
-        }else{
-            // Android virtual device Stuff
+        if(!isTestRealDevice){
             capabilities.setCapability(AndroidMobileCapabilityType.AVD, "Pixel_4a_API_30");
+        }else{
+            capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "0041282805");
         }
 
         appiumDriver = new AppiumDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
